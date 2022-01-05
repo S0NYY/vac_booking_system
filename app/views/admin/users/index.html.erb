@@ -34,8 +34,8 @@
 	      <td class="align-middle"><%= user.email %></td>
 	      <td class="align-middle"><%= user.active %></td>
 	      <td class="align-middle"><%= user.super_admin %></td>
-	      <td class="align-middle"><%= user.created_at %></td>
-	      <td class="align-middle"><%= user.updated_at %></td>
+	      <td class="align-middle"><%= user_styled_date(user.created_at) %></td>
+	      <td class="align-middle"><%= user_styled_date(user.updated_at) %></td>
 	      <td class="align-middle"><%= link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-warning' %></td>
 	      <td class="align-middle"><%= link_to 'Destroy', [:admin, user], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
 	    </tr>

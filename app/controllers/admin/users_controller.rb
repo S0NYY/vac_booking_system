@@ -4,6 +4,8 @@ module Admin
 
     def index
       @pagy, @users = pagy(@user_service.list)
+
+      @users = UsersQuery.new.call(params)
     end
 
     def new
