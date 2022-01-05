@@ -51,7 +51,7 @@ module Admin
     private
 
     def init_service
-      @vaccine_service = Vaccines::VaccineService.new(@current_user)
+      @vaccine_service = Vaccines::VaccinesItemService.new(@current_user)
     end
 
     def create_vaccine_params

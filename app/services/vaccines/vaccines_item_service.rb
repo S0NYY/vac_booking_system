@@ -1,5 +1,5 @@
 module Vaccines
-  class VaccineService
+  class VaccinesItemService
     
     attr_reader :current_user, :result
 
