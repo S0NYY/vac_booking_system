@@ -1,0 +1,24 @@
+en:
+  admin:
+    users:
+      notices:
+        created: 'User was successfully created.'
+        updated: 'User was successfully updated'
+        destroyed: 'User was successfully destroyed'
+      list:
+        header: 'Users'
+        full_name: 'Full Name'
+        email: 'Email'
+        active: 'Active'
+        super_admin: 'SuperAdmin'
+        created_at: 'CreatedAt'
+        updated_at: 'UpdatedAt'
+    vaccines:
+      notices:
+        created: 'User was successfully created.'
+        updated: 'User was successfully updated'
+        destroyed: 'User was successfully destroyed'
+      list:
+        header: 'Vaccines'
+        VaccinesItems: 'Vaccines'
+        active: 'Active'
