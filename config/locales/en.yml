@@ -22,3 +22,23 @@ en:
         header: 'Vaccines'
         VaccinesItems: 'Vaccines'
         active: 'Active'
+        description: 'Description'
+    bookings:
+      list:
+        header: 'Bookings'
+        vaccine: 'Vaccine'
+        guid: 'Guid'
+        patient: 'Patient'
+        step_state: 'Step_state'
+        created_at: 'CreatedAt'
+        ip_address: 'Ip_address'
+        browser_name: 'Browser_name'
+        os_name: 'Os_name'
+
+
+  web:
+    main:
+      header: 'Online booking'
+      seats: "Seats: %{quantity}"
+      register_text: "Register"
+      step0_submit: 'Next'

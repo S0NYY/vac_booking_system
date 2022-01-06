@@ -1,4 +1,7 @@
-class VaccinesItem < ApplicationRecord
+ class VaccinesItem < ApplicationRecord
   
-  validates :name, presence: true,  uniqueness: true
+  validates :name,        presence: true,  uniqueness: true
+  validates :description, presence: true
+
+  scope :active, -> {where(active: true)} 
 end

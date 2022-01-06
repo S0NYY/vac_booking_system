@@ -7,12 +7,12 @@ class UsersQuery
   def call(params)
     @params = params
     @scope
-      .yield_self(&method(:filter_by_email))
+      .yield_self(&method(:filter_by_full_name))
   end
 
   private
 
-  def filter_by_email(current_scope, value = @params[:email])
-    value ? current_scope.by_email(value) : current_scope
+  def filter_by_full_name(current_scope, value = @params[:full_name])
+    value ? current_scope.by_full_name(value) : current_scope
   end
 end

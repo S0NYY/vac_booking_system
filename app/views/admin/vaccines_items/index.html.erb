@@ -19,6 +19,7 @@
 	  <tr>
 	    <th><%= I18n.t('admin.vaccines.list.VaccinesItems') %></th>
 	    <th><%= I18n.t('admin.vaccines.list.active') %></th>
+	    <th><%= I18n.t('admin.vaccines.list.description') %></th>
 	    <th colspan="2"></th>
 	  </tr>
 	  </thead>
@@ -28,6 +29,7 @@
 	    <tr>
 	      <td class="align-middle"><%= vaccine.name %></td>
 	      <td class="align-middle"><%= vaccine.active %></td>
+	      <td class="align-middle"><%= vaccine.description %></td>
 	      <td class="align-middle"><%= link_to 'Edit', edit_admin_vaccines_item_path(vaccine), class: 'btn btn-warning' %></td>
 	      <td class="align-middle"><%= link_to 'Destroy', [:admin, vaccine], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
 	    </tr>
