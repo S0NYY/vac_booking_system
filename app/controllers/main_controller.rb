@@ -1,12 +1,14 @@
 class MainController < ApplicationController
   before_action :fetch_booking, only: %i[current_step next_step]
 
+  include DowncaseHelper
+  
   def index
     @vaccine_items = VaccinesItem.active
   end
 
   def current_step
-    @current_vaccine = VaccinesItem.active.where("lower(name) = ?", params[:vaccine]&.downcase).first
+    @current_vaccine = VaccinesItem.active.where("lower(name) = ?", downcase(params[:vaccine])).first
 
     return redirect_to root_url unless @current_vaccine
 
@@ -28,7 +30,8 @@ class MainController < ApplicationController
 
       @current_vaccine, @record = web_step.current_vaccine, web_step.record
       
- 
+      render :step0
+
     when @booking.nil?
       web_step = Web::Step0Service.new(@current_vaccine)
       web_step.call(@booking)

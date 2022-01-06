@@ -1,6 +1,6 @@
-module UsersHelper
+module StyledDateHelper
   
-  def user_styled_date(current_date)
+  def styled_date(current_date)
     current_date&.strftime("%Y-%m-%d %H:%M")
   end
 
