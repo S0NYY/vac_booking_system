@@ -33,7 +33,7 @@ module Admin
     end
 
     def update
-      result = @user_service.update(params[:id], create_user_params)
+      result = @user_service.update(params[:id], update_user_params)
       @user = result.user
 
       if result.success?
