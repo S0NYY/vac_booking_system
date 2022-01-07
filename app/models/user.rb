@@ -6,5 +6,12 @@
 
   validates :full_name, :email, presence: true
 
-  scope :by_full_name, ->(full_name) {where(full_name: full_name)}
+
+  def self.search(full_name)
+       if full_name
+          where(["full_name LIKE ?", "%#{full_name}%"])
+       else
+          all
+       end
+  end
 end

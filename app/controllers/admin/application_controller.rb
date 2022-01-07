@@ -4,5 +4,7 @@ module Admin
         before_action :authenticate_user!
 
         include Pagy::Backend
+
+        
     end
 end

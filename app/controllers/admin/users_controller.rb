@@ -5,7 +5,8 @@ module Admin
     def index
       @pagy, @users = pagy(@user_service.list)
 
-      @users = UsersQuery.new.call(params)
+      @users = User.search(params[:full_name])
+      
     end
 
     def new
