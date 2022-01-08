@@ -19,7 +19,7 @@ module Admin
     end
 
     def create
-      result = @vaccine_service.create(create_vaccine_params)
+      result = @vaccine_service.create(vaccine_params)
       @vaccine = result.vaccine
 
       if result.success?
@@ -30,7 +30,7 @@ module Admin
     end
 
     def update
-      result = @vaccine_service.update(params[:id], create_vaccine_params)
+      result = @vaccine_service.update(params[:id], vaccine_params)
       @vaccine = result.vaccine
 
       if result.success?
@@ -54,13 +54,9 @@ module Admin
       @vaccine_service = Vaccines::VaccinesItemService.new(@current_user)
     end
 
-    def create_vaccine_params
+    def vaccine_params
       params.require(:vaccines_item).permit(:name, :active, :description)
     end
-
-    def update_vaccine_params
-      params.require(:vaccine).permit(:id, :name, :active, :description)
-    end
-
+    
   end
 end
