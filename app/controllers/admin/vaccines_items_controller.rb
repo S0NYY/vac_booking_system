@@ -19,7 +19,7 @@ module Admin
     end
 
     def create
-      result = @vaccine_service.create(vaccine_params)
+      result = @vaccine_service.create(vaccines_item_params)
       @vaccine = result.vaccine
 
       if result.success?
@@ -30,10 +30,10 @@ module Admin
     end
 
     def update
-      result = @vaccine_service.update(params[:id], vaccine_params)
+      result = @vaccine_service.update(params[:id], vaccines_item_params)
       @vaccine = result.vaccine
 
-      if result.success?
+      if result.success? 
         redirect_to admin_vaccines_items_path, notice: I18n.t('admin.vaccines.notices.updated')
       else
         render :edit, status: :unprocessable_entity
@@ -54,9 +54,9 @@ module Admin
       @vaccine_service = Vaccines::VaccinesItemService.new(@current_user)
     end
 
-    def vaccine_params
+    def vaccines_item_params
       params.require(:vaccines_item).permit(:name, :active, :description)
     end
-    
+
   end
 end
