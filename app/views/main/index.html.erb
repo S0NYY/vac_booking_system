@@ -1,9 +1,6 @@
 <div class="row">
   <h1><%= I18n.t('web.main.header')%></h1>
 </div>
-<p id="notice"><%= @browser.platform.version %></p>
-  <p id="notice"><%= @browser.platform.name %></p>
-  <p id="notice"><%= request.remote_ip %></p>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <% @vaccine_items.each do |item| %>

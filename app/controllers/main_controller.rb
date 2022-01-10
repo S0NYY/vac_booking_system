@@ -9,14 +9,17 @@ class MainController < ApplicationController
   
   def current_step
     @current_vaccine = VaccinesItem.active.where("lower(name) = ?", downcase_helper(params[:vaccine])).first
-
+    
     return redirect_to root_url unless @current_vaccine
+
+    @browser = Browser.new(request.env["HTTP_USER_AGENT"])
+    @user_ip = request.remote_ip
 
     case 
 
     when @booking && @booking.vaccine.name != @current_vaccine.name
       web_step = Web::Step0Service.new(@current_vaccine)
-      web_step.call(nil)
+      web_step.call(nil, @browser, @user_ip)
       
       @booking ||= web_step.booking
       @current_vaccine, @record = web_step.current_vaccine, web_step.record
@@ -26,7 +29,7 @@ class MainController < ApplicationController
 
     when @booking&.pending?
       web_step = Web::Step0Service.new(@current_vaccine)
-      web_step.call(@booking)
+      web_step.call(@booking, @browser, @user_ip)
 
       @current_vaccine, @record = web_step.current_vaccine, web_step.record
       
@@ -34,7 +37,7 @@ class MainController < ApplicationController
 
     when @booking.nil?
       web_step = Web::Step0Service.new(@current_vaccine)
-      web_step.call(@booking)
+      web_step.call(@booking, @browser, @user_ip)
 
       @booking ||= web_step.booking
       @current_vaccine, @record = web_step.current_vaccine, web_step.record
