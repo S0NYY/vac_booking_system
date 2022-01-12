@@ -1,74 +1,68 @@
 class MainController < ApplicationController
   before_action :fetch_booking, only: %i[current_step next_step]
 
-  include ApplicationHelper
-  
   def index
     @vaccine_items = VaccinesItem.active
   end
-  
+
   def current_step
-    @current_vaccine = VaccinesItem.active.where("lower(name) = ?", downcase_helper(params[:vaccine])).first
-    
-    return redirect_to root_url unless @current_vaccine
 
-    @browser = Browser.new(request.env["HTTP_USER_AGENT"])
-    @user_ip = request.remote_ip
+    result = Web::CurrentStepService.call(booking: @booking, params: params, collect_analytics: collect_analytics)
 
-    case 
+    if result.success? && result.record.present?
+      @current_vaccine, @record = result.current_vaccine, result.record
 
-    when @booking && @booking.vaccine.name != @current_vaccine.name
-      web_step = Web::Step0Service.new(@current_vaccine)
-      web_step.call(nil, @browser, @user_ip)
-      
-      @booking ||= web_step.booking
-      @current_vaccine, @record = web_step.current_vaccine, web_step.record
+      cookies.signed[:booking_uuid] = result.booking.guid
 
-      cookies.signed[:booking_uuid] = { value: @booking.guid, expires: 30.minutes.from_now }
-      render :step0  
-
-    when @booking&.pending?
-      web_step = Web::Step0Service.new(@current_vaccine)
-      web_step.call(@booking, @browser, @user_ip)
-
-      @current_vaccine, @record = web_step.current_vaccine, web_step.record
-      
-      render :step0
-
-    when @booking.nil?
-      web_step = Web::Step0Service.new(@current_vaccine)
-      web_step.call(@booking, @browser, @user_ip)
-
-      @booking ||= web_step.booking
-      @current_vaccine, @record = web_step.current_vaccine, web_step.record
-
-      cookies.signed[:booking_uuid] = { value: @booking.guid, expires: 30.minutes.from_now }
-
-        render :step0 
-
-    when @booking.patiend_upserted?
-      render :step1
-
-    when @booking.reserved?
-      render :step2
-
+      render "main/steps/step#{result.render_step}"
     else
       cookies.delete(:booking_uuid)
-      redirect_to root_url 
-      
+
+      redirect_to root_url, notice: result.message
     end
   end
 
   def next_step
     
+    return redirect_to root_url, notice: I18n.t('web.main.session_expired') unless @booking
+    
+    result = Web::NextStepService.call(booking: @booking, params: params)
+
+    if result.success?
+      return redirect_to root_url, notice: I18n.t('web.main.booking_success') if result.last_step?
+
+      redirect_to current_step_path(result.booking.vaccine&.name)
+    else
+      @current_vaccine, @record = result.booking.vaccine, result.record
+
+      render "main/steps/step#{result.current_step}" 
+    end
   end
- 
+
+  def prev_step
+  end
+
+  def register
+  end
+
+  private
+
   def fetch_booking
     booking_uuid = cookies.signed[:booking_uuid]
 
     if booking_uuid.present?
+      collect_analytics
       @booking = Booking.find_by(guid: booking_uuid)
-    end 
+    end
+  end
+
+  def collect_analytics
+    browser = Browser.new(request.env["HTTP_USER_AGENT"])
+    {
+    user_ip:  request.remote_ip,
+    browser:  browser.name,
+    platform: browser.platform.name
+    }
   end
 
 end

@@ -22,7 +22,8 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'simple_form'
 gem 'pagy'
 gem 'aasm'
-gem "browser"
+gem 'browser'
+gem 'interactor'
 
 
 # Reduces boot times through caching; required in config/boot.rb

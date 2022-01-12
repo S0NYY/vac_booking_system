@@ -1,0 +1,42 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
+<br/>
+
+	<table class="table table-striped">
+	  <thead>
+	  <tr>
+	    <th><%= I18n.t('admin.patients.list.first_name') %></th>
+	    <th><%= I18n.t('admin.patients.list.last_name') %></th>
+	    <th><%= I18n.t('admin.patients.list.birth_date') %></th>
+	    <th><%= I18n.t('admin.patients.list.pin') %></th>
+	    <th><%= I18n.t('admin.patients.list.non_resident') %></th>
+	    <th><%= I18n.t('admin.patients.list.phone_number') %></th>
+	    <th><%= I18n.t('admin.patients.list.email') %></th>
+	    <th><%= I18n.t('admin.patients.list.created_at') %></th>
+	    <th><%= I18n.t('admin.patients.list.updated_at') %></th>
+	    <th colspan="2"></th>
+	  </tr>
+	  </thead>
+
+	  <tbody>
+	  <% @patients.each do |patient| %>
+	    <tr>
+	      <td class="align-middle"><%= patient.first_name %></td>
+	      <td class="align-middle"><%= patient.last_name %></td>
+	      <td class="align-middle"><%= patient.birth_date %></td>
+	      <td class="align-middle"><%= patient.pin %></td>
+	      <td class="align-middle"><%= patient.non_resident %></td>
+	      <td class="align-middle"><%= patient.mobile_phone %></td>
+	      <td class="align-middle"><%= patient.email %></td>
+	      <td class="align-middle"><%= styled_date(patient.created_at) %></td>
+	      <td class="align-middle"><%= styled_date(patient.updated_at) %></td>
+	      <td class="align-middle"><%= link_to 'Edit', edit_admin_patient_path(patient), class: 'btn btn-warning' %></td>
+	    </tr>
+	  <% end %>
+	  </tbody>
+	</table>
+	<%== pagy_bootstrap_nav(@pagy)%>
+      </div>
+    </div>
+  </div>
+</div>

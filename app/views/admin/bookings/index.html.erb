@@ -31,9 +31,14 @@
 	    <tr>
 	      <td class="align-middle"><%= booking.vaccine.name %></td>
 	      <td class="align-middle"><%= booking.guid %></td>
-	      <td class="align-middle"><%= booking.patient.pin %></td>
+
+	      <td class="align-middle"><%= link_to (booking.patient.pin), admin_patient_path(booking.patient) %></td>
+				
 	      <td class="align-middle"><%= booking.step_state %></td>
 	      <td class="align-middle"><%= styled_date(booking.created_at) %></td>
+	      <td class="align-middle"><%= booking.ip_address %></td>
+	      <td class="align-middle"><%= booking.browser_name %></td>
+	      <td class="align-middle"><%= booking.os_name %></td>
 	    </tr>
 	  <% end %>
 	  </tbody>

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+	<br />
+<%= simple_form_for [:admin, patient] do |f| %>
+	  <%= f.input :first_name, disabled: true %>
+	  <%= f.input :last_name, disabled: true %>
+	  <%= f.input :birth_date, disabled: true %>
+	  <%= f.input :pin, disabled: true %>
+	  <%= f.input :non_resident, as: :boolean, disabled: true %>
+	  <%= f.input :email, disabled: true %>
+
+		<% if action_name =='show'%>
+
+	  <%= f.input :mobile_phone, disabled: true%>
+
+		<% else%>
+
+	  <%= f.input :mobile_phone%>
+<br>
+	  <%= f.submit I18n.t('admin.patients.list.update_btn'), class: 'btn btn-success' %>
+		<% end%>
+		
+		<br>
+	<% end %>
+      </div>
+
+    
+    </div>
+  </div>
+</div> 

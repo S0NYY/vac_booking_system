@@ -34,6 +34,20 @@ en:
         ip_address: 'Ip_address'
         browser_name: 'Browser_name'
         os_name: 'Os_name'
+    patients:
+      list:
+        header: 'Patients'
+        first_name: 'First name'
+        last_name: 'Last Name'
+        birth_date: 'birth_date'
+        pin: 'Pin'
+        email: 'Email'
+        non_resident: 'non_resident'
+        phone_number: 'Phone number'
+        created_at: 'CreatedAt'
+        updated_at: 'UpdatedAt'
+        update_btn: 'Update Patient'
+        
 
 
   web:
