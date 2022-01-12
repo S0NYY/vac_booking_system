@@ -30,7 +30,7 @@
 	  <% @bookings.each do |booking| %>
 	    <tr>
 	      <td class="align-middle"><%= booking.vaccine.name %></td>
-	      <td class="align-middle"><%= booking.guid %></td>
+	      <td class="align-middle"><%= truncate(booking.guid, length: 10) %></td>
 
 	      <td class="align-middle"><%= link_to (booking.patient.pin), admin_patient_path(booking.patient) %></td>
 				

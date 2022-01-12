@@ -27,9 +27,9 @@
 	      <td class="align-middle"><%= patient.pin %></td>
 	      <td class="align-middle"><%= patient.non_resident %></td>
 	      <td class="align-middle"><%= patient.mobile_phone %></td>
-	      <td class="align-middle"><%= patient.email %></td>
-	      <td class="align-middle"><%= styled_date(patient.created_at) %></td>
-	      <td class="align-middle"><%= styled_date(patient.updated_at) %></td>
+	      <td class="align-middle"><%= truncate(patient.email, length: 10) %></td>
+	      <td class="align-middle"><%= truncate(styled_date(patient.created_at), length: 13) %></td>
+	      <td class="align-middle"><%= truncate(styled_date(patient.updated_at), length: 13) %></td>
 	      <td class="align-middle"><%= link_to 'Edit', edit_admin_patient_path(patient), class: 'btn btn-warning' %></td>
 	    </tr>
 	  <% end %>
