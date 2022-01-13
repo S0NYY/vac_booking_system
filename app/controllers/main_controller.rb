@@ -51,7 +51,6 @@ class MainController < ApplicationController
     booking_uuid = cookies.signed[:booking_uuid]
 
     if booking_uuid.present?
-      collect_analytics
       @booking = Booking.find_by(guid: booking_uuid)
     end
   end
