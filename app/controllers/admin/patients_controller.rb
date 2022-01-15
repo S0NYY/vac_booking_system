@@ -25,7 +25,7 @@ module Admin
       @user = result.patient
 
       if result.success?
-        redirect_to admin_patients_path, notice: I18n.t('admin.users.notices.updated')
+        redirect_to admin_patients_path, notice: I18n.t('admin.patients.notices.updated')
       else
         render :edit, status: :unprocessable_entity
       end

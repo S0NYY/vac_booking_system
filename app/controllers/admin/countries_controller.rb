@@ -24,7 +24,7 @@ module Admin
       @country = result.country
 
       if result.success?
-        redirect_to admin_countries_path, notice: I18n.t('admin.slots.notices.created')
+        redirect_to admin_countries_path, notice: I18n.t('admin.countries.notices.created')
       else
         render :new, status: :unprocessable_entity
       end
@@ -35,7 +35,7 @@ module Admin
       @country = result.country
 
       if result.success?
-        redirect_to admin_countries_path, notice: I18n.t('admin.users.notices.updated')
+        redirect_to admin_countries_path, notice: I18n.t('admin.countries.notices.updated')
       else
         render :edit, status: :unprocessable_entity
       end
@@ -45,7 +45,7 @@ module Admin
       result = @countries_service.delete(params[:id])
       
       if result.success?
-        redirect_to admin_countries_path, notice: I18n.t('admin.users.notices.destroyed')
+        redirect_to admin_countries_path, notice: I18n.t('admin.countries.notices.destroyed')
       end
     end
 

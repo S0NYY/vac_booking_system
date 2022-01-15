@@ -19,13 +19,11 @@ module Admin
 
     def create
       
-      binding.pry
-      
       result = @business_units.create(unit_params)
       @unit = result.unit
 
       if result.success?
-        redirect_to admin_business_units_path, notice: I18n.t('admin.slots.notices.created')
+        redirect_to admin_business_units_path, notice: I18n.t('admin.countries.notices.created')
       else
         render :new, status: :unprocessable_entity
       end
@@ -36,7 +34,7 @@ module Admin
       @unit = result.unit
 
       if result.success?
-        redirect_to admin_business_units_path, notice: I18n.t('admin.users.notices.updated')
+        redirect_to admin_business_units_path, notice: I18n.t('admin.countries.notices.updated')
       else
         render :edit, status: :unprocessable_entity
       end
@@ -46,10 +44,11 @@ module Admin
       result = @business_units.delete(params[:id])
       
       if result.success?
-        redirect_to admin_business_units_path, notice: I18n.t('admin.users.notices.destroyed')
+        redirect_to admin_business_units_path, notice: I18n.t('admin.countries.notices.destroyed')
       end
     end
 
+    private
 
     def init_service
       @business_units = Units::UnitsService.new

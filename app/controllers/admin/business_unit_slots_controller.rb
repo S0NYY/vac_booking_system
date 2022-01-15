@@ -24,7 +24,7 @@ module Admin
       @slot = result.slot
 
       if result.success?
-        redirect_to admin_business_unit_slots_path, notice: I18n.t('admin.slots.notices.created')
+        redirect_to admin_business_unit_slots_path, notice: I18n.t('admin.bunises_slots.notices.created')
       else
         render :new, status: :unprocessable_entity
       end
@@ -36,7 +36,7 @@ module Admin
       @slot = result.slot
 
       if result.success?
-        redirect_to admin_business_unit_slots_path, notice: I18n.t('admin.slots.notices.updated')
+        redirect_to admin_business_unit_slots_path, notice: I18n.t('admin.bunises_slots.notices.updated')
       else
         render :edit, status: :unprocessable_entity
       end
@@ -46,7 +46,7 @@ module Admin
       result = @slot_service.delete(params[:id])
 
       if result.success?
-        redirect_to admin_business_unit_slots_path, notice: I18n.t('admin.slots.notices.deleted')
+        redirect_to admin_business_unit_slots_path, notice: I18n.t('admin.bunises_slots.notices.deleted')
       end
     end
 

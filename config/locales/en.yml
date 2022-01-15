@@ -13,16 +13,18 @@ en:
         super_admin: 'SuperAdmin'
         created_at: 'CreatedAt'
         updated_at: 'UpdatedAt'
+
     vaccines:
       notices:
-        created: 'User was successfully created.'
-        updated: 'User was successfully updated'
-        destroyed: 'User was successfully destroyed'
+        created: 'Vaccines was successfully created.'
+        updated: 'Vaccines was successfully updated'
+        destroyed: 'Vaccines was successfully destroyed'
       list:
         header: 'Vaccines'
         VaccinesItems: 'Vaccines'
         active: 'Active'
         description: 'Description'
+
     bookings:
       list:
         header: 'Bookings'
@@ -34,7 +36,12 @@ en:
         ip_address: 'Ip_address'
         browser_name: 'Browser_name'
         os_name: 'Os_name'
+
     patients:
+      notices:
+        created: 'Patient was successfully created.'
+        updated: 'Patient was successfully updated'
+        destroyed: 'Patient was successfully destroyed'
       list:
         header: 'Patients'
         first_name: 'First name'
@@ -47,6 +54,7 @@ en:
         created_at: 'CreatedAt'
         updated_at: 'UpdatedAt'
         update_btn: 'Update Patient'
+
     slots:
       errors:
         duplicate_slot_error: 'Duplicate or incorect start-end date slot'
@@ -60,9 +68,63 @@ en:
         created_at: 'CreatedAt'
         updated_at: 'UpdatedAt'
       notices:
-        created: 'User was successfully created.'
-        updated: 'User was successfully updated'
-        destroyed: 'User was successfully destroyed'
+        created: 'Slots was successfully created'
+        updated: 'Slots was successfully updated'
+        destroyed: 'Slots was successfully destroyed'
+        
+    units:
+      list:
+        header: 'Units'
+        country_name: 'Country name'
+        city_name: 'City name'
+        district_name: 'District name'
+        name: 'Name'
+        code: 'Code'
+        active: 'Active'
+        created_at: 'CreatedAt'
+        updated_at: 'UpdatedAt'
+      notices:
+        created: 'Bunises slot was successfully created'
+        updated: 'Bunises slot was successfully updated'
+        destroyed: 'Bunises slot was successfully destroyed'
+
+    countries:
+      list:
+        header: 'Countries'
+        country_name: 'Country name'
+        code: 'Code'
+        active: 'Active'
+      notices:
+        created: 'Country was successfully created'
+        updated: 'Country was successfully updated'
+        destroyed: 'Country was successfully destroyed'
+
+    cities:
+      list:
+        header: 'Cities'
+        country_name: 'Country name'
+        city_name: 'City name'
+        code: 'Code'
+        active: 'Active'
+      notices:
+        created: 'City was successfully created'
+        updated: 'City was successfully updated'
+        destroyed: 'City was successfully destroyed'
+
+    districts:
+      list:
+        header: 'District'
+        city_name: 'City name'
+        district_name: 'District name'
+        code: 'Code'
+        active: 'Active'
+        created_at: 'CreatedAt'
+        updated_at: 'UpdatedAt'
+      notices:
+        created: 'District was successfully created'
+        updated: 'District was successfully updated'
+        destroyed: 'District was successfully destroyed'
+
   web:
     main:
       header: 'Online booking'

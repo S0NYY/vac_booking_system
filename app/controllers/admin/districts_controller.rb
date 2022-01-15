@@ -24,7 +24,7 @@ module Admin
       @district = result.district
 
       if result.success?
-        redirect_to admin_districts_path, notice: I18n.t('admin.slots.notices.created')
+        redirect_to admin_districts_path, notice: I18n.t('admin.districts.notices.created')
       else
         render :new, status: :unprocessable_entity
       end
@@ -35,7 +35,7 @@ module Admin
       @district = result.district
 
       if result.success?
-        redirect_to admin_districts_path, notice: I18n.t('admin.users.notices.updated')
+        redirect_to admin_districts_path, notice: I18n.t('admin.districts.notices.updated')
       else
         render :edit, status: :unprocessable_entity
       end
@@ -45,7 +45,7 @@ module Admin
       result = @districts_service.delete(params[:id])
       
       if result.success?
-        redirect_to admin_districts_path, notice: I18n.t('admin.users.notices.destroyed')
+        redirect_to admin_districts_path, notice: I18n.t('admin.districts.notices.destroyed')
       end
     end
 
