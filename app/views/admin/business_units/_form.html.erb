@@ -1,0 +1,10 @@
+<%= simple_form_for [:admin, unit] do |f| %>
+<%= f.association :country, collection: Country.active.order(:name), prompt: "Choose a Country"%>
+<%= f.association :city, collection: City.active.order(:name), group_method: :country, prompt: "Choose a City"%>
+<%= f.association :district, collection: District.active.order(:name), prompt: "Choose a District"%>
+
+<%= f.input :name %>
+<%= f.input :code %>
+<%= f.input :active %>
+<%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

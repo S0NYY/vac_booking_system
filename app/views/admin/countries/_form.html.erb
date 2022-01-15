@@ -1,0 +1,6 @@
+<%= simple_form_for [:admin, country] do |f| %>
+<%= f.input :name %>
+<%= f.input :code %>
+<%= f.input :active %>
+<%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

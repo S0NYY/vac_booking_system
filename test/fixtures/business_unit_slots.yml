@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_unit: one
+  duration: 1
+  start_date: 2022-01-13 20:39:08
+  end_date: 2022-01-13 20:39:08
+  lock_start_date: 2022-01-13 20:39:08
+  lock_end_date: 2022-01-13 20:39:08
+  user: one
+  active: false
+
+two:
+  business_unit: two
+  duration: 1
+  start_date: 2022-01-13 20:39:08
+  end_date: 2022-01-13 20:39:08
+  lock_start_date: 2022-01-13 20:39:08
+  lock_end_date: 2022-01-13 20:39:08
+  user: two
+  active: false

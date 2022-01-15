@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     resources :vaccines_items
     resources :bookings
     resources :patients
-  end
+    resources :business_units
+    resources :business_unit_slots
+    resources :countries
+    resources :cities
+    resources :districts
+end
 
   root to: "main#index"
 

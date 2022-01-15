@@ -1,0 +1,48 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
+
+  <div class="col">
+    <%= link_to 'New city', new_admin_city_path, class: 'btn btn-success' %>
+  </div>
+</div>
+
+<br />
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+				<h1><%= I18n.t('admin.slots.list.header') %></h1>
+
+	<table class="table table-striped">
+	  <thead>
+	  <tr>
+	    <th><%= I18n.t('admin.slots.list.business_unit_name') %></th>
+	    <th><%= I18n.t('admin.slots.list.duration') %></th>
+	    <th><%= I18n.t('admin.slots.list.start_date') %></th>
+      <th><%= I18n.t('admin.slots.list.end_date') %></th>
+	    <th><%= I18n.t('admin.slots.list.active') %></th>
+	    <th><%= I18n.t('admin.slots.list.active') %></th>
+	    <th colspan="2"></th>
+	  </tr>
+	  </thead>
+
+	  <tbody>
+	  <% @cities.each do |city| %>
+	    <tr>
+	      <td class="align-middle"><%= city.country.name %></td>
+	      <td class="align-middle"><%= city.name %></td>
+	      <td class="align-middle"><%= city.code %></td>
+	      <td class="align-middle"><%= city.active %></td>
+	      <td class="align-middle"><%= link_to 'Edit', edit_admin_city_path(city) %></td>
+	      <td class="align-middle"><%= link_to 'Destroy', [:admin, city], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	    </tr>
+	  <% end %>
+	  </tbody>
+	</table>
+
+	<%== pagy_bootstrap_nav(@pagy) %>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -47,9 +47,22 @@ en:
         created_at: 'CreatedAt'
         updated_at: 'UpdatedAt'
         update_btn: 'Update Patient'
-        
-
-
+    slots:
+      errors:
+        duplicate_slot_error: 'Duplicate or incorect start-end date slot'
+      list:
+        header: 'Slots'
+        business_unit_name: 'BusinessUnitName'
+        duration: 'Duration'
+        start_date: 'StartDate'
+        end_date: 'EndDate'
+        active: 'IsActive'
+        created_at: 'CreatedAt'
+        updated_at: 'UpdatedAt'
+      notices:
+        created: 'User was successfully created.'
+        updated: 'User was successfully updated'
+        destroyed: 'User was successfully destroyed'
   web:
     main:
       header: 'Online booking'
