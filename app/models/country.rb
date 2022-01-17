@@ -1,4 +1,4 @@
 class Country < ApplicationRecord
-
-  scope :active, -> {where(active: true)} 
+  has_many :cities
+  scope :active, -> {where(active: true)}
 end

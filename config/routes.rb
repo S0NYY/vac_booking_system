@@ -9,9 +9,13 @@ Rails.application.routes.draw do
     resources :patients
     resources :business_units
     resources :business_unit_slots
-    resources :countries
-    resources :cities
     resources :districts
+    
+    get "/countries/fetch_cities"
+    resources :countries
+    
+    get "/cities/fetch_districts"
+    resources :cities
 end
 
   root to: "main#index"

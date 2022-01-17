@@ -6,7 +6,7 @@
             "port": 5432,
             "askForPassword": true,
             "driver": "PostgreSQL",
-            "name": "Vac_booking",
+            "name": "vac_booking",
             "database": "vac_booking_system_development",
             "username": "sony"
         }

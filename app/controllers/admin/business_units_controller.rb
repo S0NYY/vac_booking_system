@@ -1,6 +1,7 @@
 module Admin
   class BusinessUnitsController < ApplicationController
     before_action :init_service
+    before_action :set_default_country, only: %i[ new create ]
 
     def index
       @pagy, @units = pagy(@business_units.list)
@@ -49,6 +50,12 @@ module Admin
     end
 
     private
+
+    def set_default_country
+      @countries = Country.all
+      @cities = []
+      @districts = []
+    end
 
     def init_service
       @business_units = Units::UnitsService.new

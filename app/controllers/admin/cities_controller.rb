@@ -49,6 +49,12 @@ module Admin
       end
     end
 
+    def fetch_districts
+      @districts = District.by_city(params[:city_id])
+
+      render partial: 'districts', object: @districts, layout: false
+    end
+
     private 
 
     def init_service

@@ -1,8 +1,32 @@
 <%= simple_form_for [:admin, unit] do |f| %>
-<%= f.association :country, collection: Country.active.order(:name), prompt: "Choose a Country"%>
-<%= f.association :city, collection: City.active.order(:name), group_method: :country, prompt: "Choose a City"%>
-<%= f.association :district, collection: District.active.order(:name), prompt: "Choose a District"%>
+<div class="row" data-controller="select">
+  
+  <%= f.label :country_id, 'Country' %>
+  <%= f.collection_select :country_id, @countries.active.order(:name), :id, :name,
+    { include_blank: 'Select Country' },
+    class: 'form-select',
+    data: { 
+      action: "change->select#fetchCities",
+      select_target: "country"
+    } 
+  %>
 
+<%= f.label :city_id, 'City' %>
+  <%= f.collection_select :city_id, @cities, :id, :name,
+    { include_blank: 'Select City' },
+    class: 'form-select',
+    data: { 
+      action: "change->select#fetchDistricts",
+      select_target: "cities" } 
+  %>
+<%= f.label :district_id, 'District' %>
+  <%= f.collection_select :district_id, @districts, :id, :name,
+    { include_blank: 'Select District' },
+    class: 'form-select',
+    data: { 
+      select_target: "districts" } 
+  %>
+</div>
 <%= f.input :name %>
 <%= f.input :code %>
 <%= f.input :active %>
