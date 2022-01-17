@@ -1,0 +1,133 @@
+ka:
+  admin:
+    users:
+      notices:
+        created: 'მომხმარებელი წარმატებით შეიქმნა.'
+        updated: 'მომხმარებელი წარმატებით განახლდა'
+        destroyed: 'მომხმარებელი წარმატებით წაიშალა'
+      list:
+        header: 'მომხმარებლები'
+        full_name: 'სახელი | გვარი'
+        email: 'მეილი'
+        active: 'აქტიური'
+        super_admin: 'სუპერ ადმინი'
+        created_at: 'შეიქმნა'
+        updated_at: 'განახლდა'
+
+    vaccines:
+      notices:
+        created: 'ვაქცინა წარმატებით შეიქმნა'
+        updated: 'ვაქცინა წარმატებით განახლდა'
+        destroyed: 'ვაქცინა წარმატებით წაიშალა'
+      list:
+        header: 'ვაქცინა'
+        VaccinesItems: 'ვაქცინა'
+        active: 'აქტიური'
+        description: 'აღწერა'
+
+    bookings:
+      list:
+        header: 'ჯავშნები'
+        vaccine: 'ვაქცინა'
+        guid: 'Guid'
+        patient: 'პაციენტი'
+        step_state: 'მდხომარეობა'
+        created_at: 'შეიქმნა'
+        ip_address: 'Ip_address'
+        browser_name: 'Browser_name'
+        os_name: 'Os_name'
+
+    patients:
+      notices:
+        created: 'პაციენტი წარმატებით შეიქმნა'
+        updated: 'პაციენტი წარმატებით განახლდა'
+        destroyed: 'პაციენტი წარმატებით წაიშალა'
+      list:
+        header: 'პაციენტი'
+        first_name: 'სახელი'
+        last_name: 'გვარი'
+        birth_date: 'დაბადებული'
+        pin: 'პირადი ნომერი'
+        email: 'მეილი'
+        non_resident: 'საქართველოს მოქალაქე'
+        phone_number: 'მობილურის ნომერი'
+        created_at: 'შეიქმნა'
+        updated_at: 'განახლდა'
+        update_btn: 'Gანაახლე პაციენტი'
+
+    slots:
+      errors:
+        duplicate_slot_error: 'მიაქციეთ ყურადღება დროს'
+      list:
+        header: 'სლოტი'
+        business_unit_name: 'კომპანიის სახელი'
+        duration: 'Duration'
+        start_date: 'დაწყების დრო'
+        end_date: 'დასრულების დრო'
+        active: 'აქტიური'
+        created_at: 'შეიქმნა'
+        updated_at: 'განახლდა'
+      notices:
+        created: 'სლიტი წარმატებით შეიქმნა'
+        updated: 'სლოტი წარმატებით განახლდა'
+        destroyed: 'სლოტი წარმატებით წაიშალა'
+        
+    units:
+      list:
+        header: 'Units'
+        country_name: 'ქვეყანა'
+        city_name: 'ქალაქი'
+        district_name: 'რაიონი'
+        name: 'სახელი'
+        code: 'კოდი'
+        active: 'აქტიური'
+        created_at: 'შეიქმნა'
+        updated_at: 'განახლდა'
+      notices:
+        created: 'სლოტი წარმატებით შეიქმნა'
+        updated: 'სლოტი წარმატებით განახლდა'
+        destroyed: 'სლოტი წარმატებით წაიშალა'
+
+    countries:
+      list:
+        header: 'ქვეყნები'
+        country_name: 'ქვეყანა'
+        code: 'კოდი'
+        active: 'აქტიური'
+      notices:
+        created: 'ქვეყანა წარმატებით შეიქმნა'
+        updated: 'ქვეყანა წატმატებით განახლდა'
+        destroyed: 'ქვეყანა წარმატებით წაიშალა'
+
+    cities:
+      list:
+        header: 'ქალაქები'
+        country_name: 'ქვეყანა'
+        city_name: 'ქალაქის სახელი'
+        code: 'კოდი'
+        active: 'აქტიური'
+      notices:
+        created: 'ქალაქი წარმატებით შეიქმნა'
+        updated: 'ქალაქი წარმატებით განახლდა'
+        destroyed: 'ქალაქი წარმატებით წაიშალა'
+
+    districts:
+      list:
+        header: 'რაიონები'
+        city_name: 'ქალაქი'
+        district_name: 'რაიონი'
+        code: 'კოდი'
+        active: 'აქტიური'
+        created_at: 'შეიქ,'
+        updated_at: 'UpdatedAt'
+      notices:
+        created: 'რაიონი წარმატებით შეიქმნა'
+        updated: 'რაიონი წარმატებით განახლდა'
+        destroyed: 'რაიონი წარმატებით წაიშალა'
+
+  web:
+    main:
+      header: 'ონლაინ დაჯავშნა'
+      seats: "Seats: %{quantity}"
+      register_text: "რეგისტრაცია"
+      step0_submit: 'შემდეგი'

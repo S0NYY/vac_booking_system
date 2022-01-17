@@ -93,6 +93,8 @@ GEM
     devise-bootstrap-views (1.1.0)
     erubi (1.10.0)
     ffi (1.15.4)
+    flag-icons-rails (3.4.6.1)
+      sass-rails
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.8.11)
@@ -240,6 +242,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   devise-bootstrap-views (~> 1.0)
+  flag-icons-rails
   interactor
   jbuilder (~> 2.7)
   listen (~> 3.3)
