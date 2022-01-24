@@ -1,6 +1,6 @@
 module Admin
+  # ...
   class BookingsController < ApplicationController
-
     before_action :init_service
 
     def index
@@ -12,6 +12,5 @@ module Admin
     def init_service
       @booking_service = Bookings::BookingsService.new
     end
-
   end
 end

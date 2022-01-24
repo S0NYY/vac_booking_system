@@ -1,4 +1,5 @@
 module Admin
+  # ...
   class UsersController < ApplicationController
     before_action :init_service
 
@@ -6,7 +7,6 @@ module Admin
       @pagy, @users = pagy(@user_service.list)
 
       @users = User.search(params[:full_name])
-      
     end
 
     def new
@@ -45,7 +45,6 @@ module Admin
 
     def destroy
       result = @user_service.delete(params[:id])
-      
       if result.success?
         redirect_to admin_users_path, notice: I18n.t('admin.users.notices.destroyed')
       end
@@ -64,6 +63,5 @@ module Admin
     def update_user_params
       params.require(:user).permit(:id, :full_name, :email, :active)
     end
-
   end
 end

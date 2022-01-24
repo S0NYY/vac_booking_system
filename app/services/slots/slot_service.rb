@@ -1,4 +1,5 @@
 module Slots
+  # ...
   class SlotService
     attr_reader :current_user, :result
 
@@ -8,7 +9,7 @@ module Slots
     end
 
     def list
-      BusinessUnitSlot.active.order(created_at: :desc)
+      BusinessUnitSlot.order(created_at: :desc)
     end
 
     def new
@@ -24,7 +25,7 @@ module Slots
 
       result.tap do |r|
         r.slot = BusinessUnitSlot.new(params)
-        r.send("success?=", r.slot.save)
+        r.send('success?=', r.slot.save)
       end
     rescue ActiveRecord::StatementInvalid
       result.tap do |r|
@@ -38,7 +39,7 @@ module Slots
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.slot.update(params))
+        r.send('success?=', r.slot.update(params))
       end
     rescue ActiveRecord::StatementInvalid
       result.tap do |r|
@@ -50,7 +51,7 @@ module Slots
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.slot.destroy)
+        r.send('success?=', r.slot.destroy)
       end
     end
 

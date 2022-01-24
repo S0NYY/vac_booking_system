@@ -1,12 +1,11 @@
 module Patients
-  class PatientsService 
-
+  # ...
+  class PatientsService
     attr_reader :result
 
     def initialize
-      
       @result = OpenStruct.new(success?: false, patient: Patient.new)
-    end 
+    end
 
     def list
       Patient.all
@@ -24,7 +23,7 @@ module Patients
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.patient.update(params))
+        r.send('success?=', r.patient.update(params))
       end
     end
 

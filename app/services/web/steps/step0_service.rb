@@ -1,5 +1,6 @@
 module Web
   module Steps
+    # ...
     class Step0Service
       include Interactor
 
@@ -51,7 +52,6 @@ module Web
       def db_patient_attrs
         context.params.slice(:first_name, :last_name, :birth_date, :pin, :non_resident)
       end
-      
     end
   end
 end

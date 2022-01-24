@@ -1,6 +1,6 @@
 module Districts
+  # ...
   class DistrictsService
-    
     attr_reader :result
 
     def initialize
@@ -23,7 +23,7 @@ module Districts
       result.tap do |r|
         r.district = District.new(params)
 
-        r.send("success?=", r.district.save)
+        r.send('success?=', r.district.save)
       end
     end
 
@@ -31,7 +31,7 @@ module Districts
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.district.update(params))
+        r.send('success?=', r.district.update(params))
       end
     end
 
@@ -39,7 +39,7 @@ module Districts
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.district.destroy)
+        r.send('success?=', r.district.destroy)
       end
     end
 
@@ -49,6 +49,5 @@ module Districts
       result.district = District.find(id)
       result
     end
-
   end
 end

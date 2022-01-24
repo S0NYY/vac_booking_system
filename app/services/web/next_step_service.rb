@@ -1,21 +1,13 @@
 module Web
+  # ...
   class NextStepService
     include Interactor
 
     def call
       booking = context.booking
-      params = context.params
 
-      result = 
-          case
-          when booking.pending?
-            Steps::Step0Service.call(booking: booking, params: step0_params)
-          when booking.patient_upserted?
-            Steps::Step1Service.call(booking: booking, params: params)
-          when booking.reserved?
-            Steps::Step2Service.call(booking: booking, params: params)
-          else
-          end
+      step_wrapper = Web::StepsWrapper.call(booking: context.booking)
+      result = step_wrapper.next_service.call(booking: booking, params: send("step#{step_wrapper.step_number}_params"))
 
       normalize_result(result)
     end
@@ -27,13 +19,25 @@ module Web
       context.next_step = result.next_step
       context.current_step = result.current_step
 
-      context.send("last_step?=", false) # TODO: 
+      context.send('last_step?=', false) # TODO: 
 
       context.fail!(message: result.message) if result.failure?
     end
 
     def step0_params
-      context.params.require(:patient).permit(:first_name, :last_name, :pin, :birth_date, :non_resident, :mobile_phone, :email)
+      context.params.require(:patient).permit(
+        :first_name,
+        :last_name,
+        :pin,
+        :birth_date,
+        :non_resident,
+        :mobile_phone,
+        :email
+      )
+    end
+
+    def step1_params
+      context.params.require(:order).permit(:order_date, :business_unit_slot_id)
     end
   end
 end

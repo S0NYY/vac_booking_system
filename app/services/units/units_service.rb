@@ -1,11 +1,11 @@
 module Units
+  # ...
   class UnitsService
     attr_reader :result
 
     def initialize
       @result = OpenStruct.new(success?: false, unit: BusinessUnit.new)
     end
-
 
     def list
       BusinessUnit.all
@@ -22,14 +22,14 @@ module Units
     def create(params)
       result.tap do |r|
         r.unit = BusinessUnit.new(params)
-        r.send("success?=", r.unit.save)
+        r.send('success?=', r.unit.save)
       end
     end
 
     def update(id, params)
       find_record(id)
       result.tap do |r|
-        r.send("success?=", r.unit.update(params))
+        r.send('success?=', r.unit.update(params))
       end
     end
 
@@ -37,10 +37,9 @@ module Units
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.unit.destroy)
+        r.send('success?=', r.unit.destroy)
       end
     end
-
 
     private
 

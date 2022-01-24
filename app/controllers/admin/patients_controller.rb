@@ -1,11 +1,10 @@
 module Admin
+  # ...
   class PatientsController < ApplicationController
-
     before_action :init_service
 
     def index
       @pagy, @patients = pagy(@patient_service.list)
-
     end
 
     def show

@@ -1,7 +1,7 @@
 module Admin
+  # ...
   class CountriesController < ApplicationController
     before_action :init_service
-    
     def index
       @pagy, @countries = pagy(@countries_service.list)
     end
@@ -9,7 +9,6 @@ module Admin
     def new
       result = @countries_service.new
       @country = result.country
-      
     end
 
     def edit
@@ -17,7 +16,6 @@ module Admin
 
       @country = result.country
     end
-
 
     def create
       result = @countries_service.create(country_params)
@@ -43,7 +41,6 @@ module Admin
 
     def destroy
       result = @countries_service.delete(params[:id])
-      
       if result.success?
         redirect_to admin_countries_path, notice: I18n.t('admin.countries.notices.destroyed')
       end
@@ -55,7 +52,7 @@ module Admin
       render partial: 'cities', object: @cities, layout: false
     end
 
-    private 
+    private
 
     def init_service
       @countries_service = Countries::CountriesService.new

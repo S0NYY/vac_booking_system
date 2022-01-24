@@ -1,6 +1,6 @@
 module Cities
+  # ...
   class CitiesService
-    
     attr_reader :result
 
     def initialize
@@ -12,9 +12,7 @@ module Cities
     end
 
     def new
-      
       result
-      
     end
 
     def edit(id)
@@ -25,7 +23,7 @@ module Cities
       result.tap do |r|
         r.city = City.new(params)
 
-        r.send("success?=", r.city.save)
+        r.send('success?=', r.city.save)
       end
     end
 
@@ -33,7 +31,7 @@ module Cities
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.city.update(params))
+        r.send('success?=', r.city.update(params))
       end
     end
 
@@ -41,7 +39,7 @@ module Cities
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.city.destroy)
+        r.send('success?=', r.city.destroy)
       end
     end
 
@@ -51,6 +49,5 @@ module Cities
       result.city = City.find(id)
       result
     end
-
   end
 end

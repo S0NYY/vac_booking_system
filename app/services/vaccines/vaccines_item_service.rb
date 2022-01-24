@@ -1,12 +1,12 @@
 module Vaccines
+  # ...
   class VaccinesItemService
-    
     attr_reader :current_user, :result
 
     def initialize(current_user)
       @current_user = current_user
       @result = OpenStruct.new(success?: false, vaccine: VaccinesItem.new)
-    end 
+    end
 
     def list
       VaccinesItem.all
@@ -23,7 +23,7 @@ module Vaccines
     def create(params)
       result.tap do |r|
         r.vaccine = VaccinesItem.new(params)
-        r.send("success?=", r.vaccine.save)
+        r.send('success?=', r.vaccine.save)
       end
     end
 
@@ -31,7 +31,7 @@ module Vaccines
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.vaccine.update(params))
+        r.send('success?=', r.vaccine.update(params))
       end
     end
 
@@ -39,7 +39,7 @@ module Vaccines
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.vaccine.destroy)
+        r.send('success?=', r.vaccine.destroy)
       end
     end
 
@@ -49,7 +49,5 @@ module Vaccines
       result.vaccine = VaccinesItem.find(id)
       result
     end
-
-
   end
 end

@@ -42,6 +42,10 @@
         </li>
 
         <li class="nav-item">
+          <%= link_to 'Orders', admin_orders_path, class: 'nav-link' %>
+         </li>
+
+        <li class="nav-item">
          <%= link_to 'Country', admin_countries_path, class: 'nav-link' %>
         </li>
 
@@ -54,11 +58,11 @@
         </li>
         
         <li class="nav-item">
-          <%= link_to flag_icon(:ge), admin_root_path(locale: :ka), class: 'nav-link' %>
+          <%= link_to flag_icon(:ge), locale: :ka %>
         </li>
         
         <li class="nav-item">
-          <%= link_to flag_icon(:us), admin_root_path(locale: :en), class: 'nav-link' %>
+          <%= link_to flag_icon(:us), locale: :en %>
         </li>
         
 

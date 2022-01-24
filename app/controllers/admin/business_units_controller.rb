@@ -1,7 +1,8 @@
 module Admin
+  # ...
   class BusinessUnitsController < ApplicationController
     before_action :init_service
-    before_action :set_default_select, only: %i[ new create ]
+    before_action :set_default_select, only: %i[new create update edit]
 
     def index
       @pagy, @units = pagy(@business_units.list)
@@ -19,7 +20,6 @@ module Admin
     end
 
     def create
-      
       result = @business_units.create(unit_params)
       @unit = result.unit
 
@@ -43,7 +43,6 @@ module Admin
 
     def destroy
       result = @business_units.delete(params[:id])
-      
       if result.success?
         redirect_to admin_business_units_path, notice: I18n.t('admin.countries.notices.destroyed')
       end

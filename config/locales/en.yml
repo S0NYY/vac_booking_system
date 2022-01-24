@@ -87,6 +87,17 @@ en:
         created: 'Bunises slot was successfully created'
         updated: 'Bunises slot was successfully updated'
         destroyed: 'Bunises slot was successfully destroyed'
+        
+    orders:
+      list:
+        header: 'Orders'
+        business_unit: 'Business unit'
+        patient: 'Patient'
+        code: 'code'
+        date: 'date'
+        finished: 'Finished'
+        created_at: 'Created'
+        updated_at: 'Updated'
 
     countries:
       list:
@@ -131,3 +142,4 @@ en:
       seats: "Seats: %{quantity}"
       register_text: "Register"
       step0_submit: 'Next'
+      step1_submit: 'Next'

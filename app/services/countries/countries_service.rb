@@ -1,6 +1,6 @@
 module Countries
+  # ...
   class CountriesService
-    
     attr_reader :result
 
     def initialize
@@ -22,7 +22,7 @@ module Countries
     def create(params)
       result.tap do |r|
         r.country = Country.new(params)
-        r.send("success?=", r.country.save)
+        r.send('success?=', r.country.save)
       end
     end
 
@@ -30,7 +30,7 @@ module Countries
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.country.update(params))
+        r.send('success?=', r.country.update(params))
       end
     end
 
@@ -38,7 +38,7 @@ module Countries
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.country.destroy)
+        r.send('success?=', r.country.destroy)
       end
     end
 
@@ -48,6 +48,5 @@ module Countries
       result.country = Country.find(id)
       result
     end
-
   end
 end

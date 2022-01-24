@@ -1,7 +1,7 @@
 module Admin
+  # ...
   class DistrictsController < ApplicationController
     before_action :init_service
-    
     def index
       @pagy, @districts = pagy(@districts_service.list)
     end
@@ -9,7 +9,6 @@ module Admin
     def new
       result = @districts_service.new
       @district = result.district
-      
     end
 
     def edit
@@ -17,7 +16,6 @@ module Admin
 
       @district = result.district
     end
-
 
     def create
       result = @districts_service.create(district_params)
@@ -43,13 +41,12 @@ module Admin
 
     def destroy
       result = @districts_service.delete(params[:id])
-      
       if result.success?
         redirect_to admin_districts_path, notice: I18n.t('admin.districts.notices.destroyed')
       end
     end
 
-    private 
+    private
 
     def init_service
       @districts_service = Districts::DistrictsService.new

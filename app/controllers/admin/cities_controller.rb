@@ -1,7 +1,7 @@
 module Admin
+  # ...
   class CitiesController < ApplicationController
     before_action :init_service
-    
     def index
       @pagy, @cities = pagy(@cities_service.list)
     end
@@ -9,7 +9,6 @@ module Admin
     def new
       result = @cities_service.new
       @city = result.city
-      
     end
 
     def edit
@@ -17,7 +16,6 @@ module Admin
 
       @city = result.city
     end
-
 
     def create
       result = @cities_service.create(city_params)
@@ -43,7 +41,6 @@ module Admin
 
     def destroy
       result = @cities_service.delete(params[:id])
-      
       if result.success?
         redirect_to admin_cities_path, notice: I18n.t('admin.cities.notices.destroyed')
       end
@@ -55,7 +52,7 @@ module Admin
       render partial: 'districts', object: @districts, layout: false
     end
 
-    private 
+    private
 
     def init_service
       @cities_service = Cities::CitiesService.new

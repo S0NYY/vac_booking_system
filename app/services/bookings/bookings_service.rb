@@ -1,12 +1,11 @@
 module Bookings
+  # ...
   class BookingsService 
-
     attr_reader :result
 
     def initialize
-      
       @result = OpenStruct.new(booking: Booking.new)
-    end 
+    end
 
     def list
       Booking.all

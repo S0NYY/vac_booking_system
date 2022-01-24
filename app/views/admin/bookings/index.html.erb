@@ -1,49 +1,43 @@
 <div class="row">
   <p id="notice"><%= notice %></p>
-
 </div>
-
-<br />
-
+<br/>
 <div class="card">
   <div class="card-body">
     <div class="row">
       <div class="col">
-	<h1><%= I18n.t('admin.bookings.list.header') %></h1>
+			<h1><%= I18n.t('admin.bookings.list.header') %></h1>
+			<table class="table table-striped">
+	  		<thead>
+					<tr>
+						<th><%= I18n.t('admin.bookings.list.vaccine') %></th>
+						<th><%= I18n.t('admin.bookings.list.guid') %></th>
+						<th><%= I18n.t('admin.bookings.list.patient') %></th>
+						<th><%= I18n.t('admin.bookings.list.step_state') %></th>
+						<th><%= I18n.t('admin.bookings.list.created_at') %></th>
+						<th><%= I18n.t('admin.bookings.list.ip_address') %></th>
+						<th><%= I18n.t('admin.bookings.list.browser_name') %></th>
+						<th><%= I18n.t('admin.bookings.list.os_name') %></th>
+						<th colspan="2"></th>
+					</tr>
+				</thead>
 
-	<table class="table table-striped">
-	  <thead>
-	  <tr>
-	    <th><%= I18n.t('admin.bookings.list.vaccine') %></th>
-	    <th><%= I18n.t('admin.bookings.list.guid') %></th>
-	    <th><%= I18n.t('admin.bookings.list.patient') %></th>
-	    <th><%= I18n.t('admin.bookings.list.step_state') %></th>
-	    <th><%= I18n.t('admin.bookings.list.created_at') %></th>
-	    <th><%= I18n.t('admin.bookings.list.ip_address') %></th>
-	    <th><%= I18n.t('admin.bookings.list.browser_name') %></th>
-	    <th><%= I18n.t('admin.bookings.list.os_name') %></th>
-	    <th colspan="2"></th>
-	  </tr>
-	  </thead>
-
-	  <tbody>
-	  <% @bookings.each do |booking| %>
-	    <tr>
-	      <td class="align-middle"><%= booking.vaccine.name %></td>
-	      <td class="align-middle"><%= truncate(booking.guid, length: 10) %></td>
-
-	      <td class="align-middle"><%= link_to (booking.patient.pin), admin_patient_path(booking.patient) %></td>
-				
-	      <td class="align-middle"><%= booking.step_state %></td>
-	      <td class="align-middle"><%= styled_date(booking.created_at) %></td>
-	      <td class="align-middle"><%= booking.ip_address %></td>
-	      <td class="align-middle"><%= booking.browser_name %></td>
-	      <td class="align-middle"><%= booking.os_name %></td>
-	    </tr>
-	  <% end %>
-	  </tbody>
-	</table>
-						<%== pagy_bootstrap_nav(@pagy)%>
+	  		<tbody>
+	  			<% @bookings.each do |booking| %>
+					<tr>
+						<td class="align-middle"><%= booking.vaccine.name %></td>
+						<td class="align-middle"><%= truncate(booking.guid, length: 10) %></td>
+						<td class="align-middle"><%= link_to (booking.patient.pin), admin_patient_path(booking.patient) %></td>
+						<td class="align-middle"><%= booking.step_state %></td>
+						<td class="align-middle"><%= styled_date(booking.created_at) %></td>
+						<td class="align-middle"><%= booking.ip_address %></td>
+						<td class="align-middle"><%= booking.browser_name %></td>
+						<td class="align-middle"><%= booking.os_name %></td>
+					</tr>
+	  			<% end %>
+	  		</tbody>
+			</table>
+					<%== pagy_bootstrap_nav(@pagy)%>
       </div>
     </div>
   </div>

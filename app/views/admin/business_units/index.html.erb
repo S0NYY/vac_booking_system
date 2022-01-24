@@ -1,15 +1,12 @@
 <div class="row">
   <p id="notice"><%= notice %></p>
-
   <div class="col">
     <%= link_to 'New Unit', new_admin_business_unit_path, class: 'btn btn-success' %>
   </div>
 </div>
-
-<br />
+<br/>
 
 <div class="card">
-  <div class="card-body">
     <div class="row">
       <div class="col">
 				<h1><%= I18n.t('admin.units.list.header') %></h1>
@@ -47,5 +44,4 @@
 					<%== pagy_bootstrap_nav(@pagy) %>
       </div>
     </div>
-  </div>
 </div> 

@@ -1,0 +1,40 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
+<br/>
+<div class="card">
+    <div class="row">
+      <div class="col">
+			<h1><%= I18n.t('admin.orders.list.header') %></h1>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th><%= I18n.t('admin.orders.list.business_unit') %></th>
+						<th><%= I18n.t('admin.orders.list.patient') %></th>
+						<th><%= I18n.t('admin.orders.list.code') %></th>
+						<th><%= I18n.t('admin.orders.list.date') %></th>
+						<th><%= I18n.t('admin.orders.list.finished') %></th>
+						<th><%= I18n.t('admin.orders.list.created_at') %></th>
+						<th><%= I18n.t('admin.orders.list.updated_at') %></th>
+						<th colspan="2"></th>
+					</tr>
+				</thead>
+				
+				<tbody>
+				<% @orders.each do |order| %>
+					<tr>
+						<td class="align-middle"><%= order.business_unit_slot.business_unit.name %></td>
+						<td class="align-middle"><%= order.patient.first_name %></td>
+						<td class="align-middle"><%= order.order_code %></td>
+						<td class="align-middle"><%= styled_date(order.order_date) %></td>
+						<td class="align-middle"><%= order.finished %></td>
+						<td class="align-middle"><%= styled_date(order.created_at) %></td>
+						<td class="align-middle"><%= styled_date(order.updated_at) %></td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+				<%== pagy_bootstrap_nav(@pagy)%>
+      </div>
+    </div>
+</div>

@@ -61,7 +61,7 @@ ka:
       list:
         header: 'სლოტი'
         business_unit_name: 'კომპანიის სახელი'
-        duration: 'Duration'
+        duration: 'შუალედი'
         start_date: 'დაწყების დრო'
         end_date: 'დასრულების დრო'
         active: 'აქტიური'
@@ -87,6 +87,17 @@ ka:
         created: 'სლოტი წარმატებით შეიქმნა'
         updated: 'სლოტი წარმატებით განახლდა'
         destroyed: 'სლოტი წარმატებით წაიშალა'
+
+    orders:
+      list:
+        header: 'შეკვეთა'
+        business_unit: 'ფილიალი'
+        patient: 'პაციენტი'
+        code: 'კოდი'
+        date: 'თარიღი'
+        finished: 'დასრულებული'
+        created_at: 'შექმნილი'
+        updated_at: 'განახლებული'
 
     countries:
       list:
@@ -131,3 +142,4 @@ ka:
       seats: "Seats: %{quantity}"
       register_text: "რეგისტრაცია"
       step0_submit: 'შემდეგი'
+      step1_submit: 'შემდეგი'

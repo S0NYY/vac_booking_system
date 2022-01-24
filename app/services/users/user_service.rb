@@ -1,14 +1,12 @@
 module Users
-  class UserService 
-
+  # ...
+  class UserService
     attr_reader :current_user, :result
 
     def initialize(current_user)
-      
-      
       @current_user = current_user
       @result = OpenStruct.new(success?: false, user: User.new)
-    end 
+    end
 
     def list
       User.all
@@ -25,7 +23,7 @@ module Users
     def create(params)
       result.tap do |r|
         r.user = User.new(params)
-        r.send("success?=", r.user.save)
+        r.send('success?=', r.user.save)
       end
     end
 
@@ -33,7 +31,7 @@ module Users
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.user.update(params))
+        r.send('success?=', r.user.update(params))
       end
     end
 
@@ -41,7 +39,7 @@ module Users
       find_record(id)
 
       result.tap do |r|
-        r.send("success?=", r.user.destroy)
+        r.send('success?=', r.user.destroy)
       end
     end
 

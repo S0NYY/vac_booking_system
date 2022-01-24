@@ -1,43 +1,37 @@
 <div class="row">
   <p id="notice"><%= notice %></p>
-
   <div class="col">
     <%= link_to 'New Vaccine', new_admin_vaccines_item_path, class: 'btn btn-success' %>
   </div>
 </div>
-
-<br />
-
+<br/>
 <div class="card">
-  <div class="card-body">
     <div class="row">
       <div class="col">
-	<h1><%= I18n.t('admin.vaccines.list.header') %></h1>
+			<h1><%= I18n.t('admin.vaccines.list.header') %></h1>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th><%= I18n.t('admin.vaccines.list.VaccinesItems') %></th>
+					<th><%= I18n.t('admin.vaccines.list.active') %></th>
+					<th><%= I18n.t('admin.vaccines.list.description') %></th>
+					<th colspan="2"></th>
+				</tr>
+				</thead>
 
-	<table class="table table-striped">
-	  <thead>
-	  <tr>
-	    <th><%= I18n.t('admin.vaccines.list.VaccinesItems') %></th>
-	    <th><%= I18n.t('admin.vaccines.list.active') %></th>
-	    <th><%= I18n.t('admin.vaccines.list.description') %></th>
-	    <th colspan="2"></th>
-	  </tr>
-	  </thead>
-
-	  <tbody>
-	  <% @vaccines.each do |vaccine| %>
-	    <tr>
-	      <td class="align-middle"><%= vaccine.name %></td>
-	      <td class="align-middle"><%= vaccine.active %></td>
-	      <td class="align-middle"><%= vaccine.description %></td>
-	      <td class="align-middle"><%= link_to 'Edit', edit_admin_vaccines_item_path(vaccine), class: 'btn btn-warning' %></td>
-	      <td class="align-middle"><%= link_to 'Destroy', [:admin, vaccine], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
-	    </tr>
-	  <% end %>
-	  </tbody>
-	</table>
-						<%== pagy_bootstrap_nav(@pagy)%>
+				<tbody>
+				<% @vaccines.each do |vaccine| %>
+					<tr>
+						<td class="align-middle"><%= vaccine.name %></td>
+						<td class="align-middle"><%= vaccine.active %></td>
+						<td class="align-middle"><%= vaccine.description %></td>
+						<td class="align-middle"><%= link_to 'Edit', edit_admin_vaccines_item_path(vaccine), class: 'btn btn-warning' %></td>
+						<td class="align-middle"><%= link_to 'Destroy', [:admin, vaccine], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+				<%== pagy_bootstrap_nav(@pagy)%>
       </div>
     </div>
-  </div>
 </div>

@@ -1,4 +1,5 @@
 module Admin
+  # ...
   class BusinessUnitSlotsController < ApplicationController
     before_action :init_service
 
