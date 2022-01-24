@@ -47,7 +47,7 @@ module Admin
     end
 
     def fetch_districts
-      @districts = District.by_city(params[:city_id])
+      @districts = District.active.by_city(params[:city_id])
 
       render partial: 'districts', object: @districts, layout: false
     end
