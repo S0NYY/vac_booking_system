@@ -17,8 +17,8 @@ module VacBookingSystem
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    config.eager_load_paths << Rails.root.join("app/services")
-    
+    config.eager_load_paths << Rails.root.join('app/services')
+    config.eager_load_paths << Rails.root.join('app/presenters')
     config.i18n.available_locales = [:en, :ka]
     config.i18n.default_locale = :en
   end

@@ -1,6 +1,7 @@
 # ...
 class MainController < ApplicationController
   before_action :fetch_booking, only: %i[current_step next_step]
+  before_action :clear_booking
 
   def index
     @vaccine_items = VaccinesItem.active
@@ -28,7 +29,11 @@ class MainController < ApplicationController
     result = Web::NextStepService.call(booking: @booking, params: params)
 
     if result.success?
-      return redirect_to root_url, notice: I18n.t('web.main.booking_success') if result.last_step?
+      if result.last_step?
+        cookies.delete(:booking_uuid)
+
+        return redirect_to root_url, notice: I18n.t('web.main.booking_success')
+      end
 
       redirect_to current_step_path(result.booking.vaccine&.name)
     else
@@ -64,5 +69,13 @@ class MainController < ApplicationController
     browser: browser.name,
     platform: browser.platform.name
     }
+  end
+
+  def clear_booking
+    if @booking&.finished?
+      cookies.delete(:booking_uuid)
+
+      redirect_to root_url
+    end
   end
 end

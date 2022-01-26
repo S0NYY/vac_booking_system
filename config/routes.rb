@@ -1,4 +1,6 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'main#index'
 
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
       get '/cities/fetch_districts'
       resources :cities
       resources :orders
+      resources :sms
     end
   end
 

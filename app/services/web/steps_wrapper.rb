@@ -24,8 +24,8 @@ module Web
     end
 
     def setup_reserved_step
-      context.next_service = Steps::Step1Service
-      context.record = context.booking&.order
+      context.next_service = Steps::Step2Service
+      context.record = BookingPresenter.new(context.booking)
       context.step_number = 2
     end
   end

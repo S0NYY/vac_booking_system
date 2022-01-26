@@ -98,6 +98,15 @@ ka:
         finished: 'დასრულებული'
         created_at: 'შექმნილი'
         updated_at: 'განახლებული'
+    sms:
+      list:
+        header: 'შეტყობინებები'
+        title: 'სათაური'
+        message: 'შეტყობინება'
+        mobile_phone: 'მობილური'
+        order_code: 'ჯავშანის კოდი'
+        sent_at: 'გაიგზავნა'
+        created_at: 'შეიქმნა'
 
     countries:
       list:
@@ -143,3 +152,14 @@ ka:
       register_text: "რეგისტრაცია"
       step0_submit: 'შემდეგი'
       step1_submit: 'შემდეგი'
+      step2_submit: 'დასრულება'
+      step2:
+        full_name: 'სახელი გვარი'
+        email: 'მეილი'
+        pin: 'პირადობის ნომერი'
+        mobile_phone: 'მობილური'
+        birth_date: 'დაბადების თარიღი'
+        order_address: 'მისამართი'
+        order_date: 'ჯავშნის დრო'
+        vaccine: 'ვაქცინა'
+        slot_already_reserved: 'This lost already reserved'

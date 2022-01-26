@@ -1,0 +1,36 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
+<br/>
+<div class="card">
+	<div class="row">
+		<div class="col">
+		<h1><%= I18n.t('admin.sms.list.header') %></h1>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th><%= I18n.t('admin.sms.list.title') %></th>
+					<th><%= I18n.t('admin.sms.list.message') %></th>
+					<th><%= I18n.t('admin.sms.list.mobile_phone') %></th>
+					<th><%= I18n.t('admin.sms.list.order_code') %></th>
+					<th><%= I18n.t('admin.sms.list.sent_at') %></th>
+					<th><%= I18n.t('admin.sms.list.created_at') %></th>
+					<th colspan="2"></th>
+				</tr>
+				</thead>
+
+				<tbody>
+				<% @sms.each do |sms| %>
+					<tr>
+						<td class="align-middle"><%= sms.title %></td>
+						<td class="align-middle"><%= sms.message %></td>
+						<td class="align-middle"><%= sms.booking.patient.mobile_phone %></td>
+						<td class="align-middle"><%= sms.booking.order.order_code %></td>
+						<td class="align-middle"><%= styled_date(sms.sent_at) %></td>
+						<td class="align-middle"><%= styled_date(sms.created_at) %></td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
