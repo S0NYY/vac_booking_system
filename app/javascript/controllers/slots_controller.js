@@ -7,7 +7,8 @@ export default class extends Controller {
 	    "city",
 	    "district",
 	    "bu_unit",
-	    "slots"
+	    "slots",
+        "refresh"
     ]
 
     connect() {
@@ -54,6 +55,7 @@ export default class extends Controller {
             data: "business_unit_id=" + this.bu_unitTarget.value,
             success: (data) => {
                 this.slotsTarget.innerHTML = data.body.innerHTML
+                this.refreshTarget.disabled = false
             }
         });
     }

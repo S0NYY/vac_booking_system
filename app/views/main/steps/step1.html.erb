@@ -60,11 +60,11 @@
 
         <div class="col">
           <%= f.button 'Reload', type: 'button',
-            class: 'btn btn-secondary',
+            class: 'btn btn-dark',
             data: {
               action: "click->slots#fetchSlots",
-              slots_target: "bu_unit"
-            }
+              slots_target: "refresh"
+            },disabled: true
           %>
         </div>
 
