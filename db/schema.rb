@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_26_160254) do
+ActiveRecord::Schema.define(version: 2022_01_30_203311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gist"
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2022_01_26_160254) do
     t.boolean "finished", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["business_unit_slot_id", "order_date"], name: "index_orders_on_business_unit_slot_id_and_order_date", unique: true
+    t.index ["business_unit_slot_id", "order_date"], name: "index_orders_on_business_unit_slot_id_and_order_date", unique: true, where: "(finished IS TRUE)"
     t.index ["business_unit_slot_id"], name: "index_orders_on_business_unit_slot_id"
     t.index ["order_code"], name: "index_orders_on_order_code", unique: true
     t.index ["patient_id"], name: "index_orders_on_patient_id"
