@@ -1,6 +1,6 @@
 # ...
 class MainController < ApplicationController
-  before_action :fetch_booking, only: %i[current_step next_step]
+  before_action :fetch_booking, only: %i[current_step next_step prev_step]
   before_action :clear_booking
 
   def index
@@ -43,9 +43,19 @@ class MainController < ApplicationController
     end
   end
 
-  def prev_step; end
+  def prev_step
+    return redirect_to root_url, notice: I18n.t('web.main.session_expired') unless @booking
 
-  def register; end
+    result = Web::PrevStepService.call(booking: @booking, params: params)
+
+    if result.success?
+      redirect_to current_step_path(result.booking.vaccine&.name&.downcase)
+    else
+      assign_step_variables({ vaccine: result.booking.vaccine, record: result.record })
+
+      render "main/steps/step#{result.current_step}"
+    end
+  end
 
   private
 

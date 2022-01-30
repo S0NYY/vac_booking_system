@@ -1,22 +1,23 @@
-
 <% @bu_slots.each do |group_option, slots| %>
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title"><%= group_option[0] %> - Duration: <%= group_option[1] %></h5>
-    <p class="card-text">
-    <div class="row">
-    <% slots.each do |slot| %>
-      <div class="col-1">
-        <span class="slot-item btn"
-          data-action="click->slots#selectSlot"
-          data-slots-slot-time-param="<%= slot.slot_item %>"
-          data-slots-slot-id-param="<%= slot.id %>">
-          <%= slot.slot_item&.strftime("%H:%M") %>
-        </span>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= group_option[0] %> - Duration: <%= group_option[1] %></h5>
+      <p class="card-text">
+      <div class="row">
+        <% slots.each do |slot| %>
+          <div class="col-1">
+            <span
+                class="slot-item btn <%= @dt.to_i == slot.slot_item.to_i ? 'slot-item-selected' : '' %>"
+                data-action="click->slots#selectSlot"
+                data-slots-slot-time-param="<%= slot.slot_item %>"
+                data-slots-slot-id-param="<%= slot.id %>"
+                >
+                <%= slot.slot_item&.strftime("%H:%M") %>
+            </span>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+      </p>
     </div>
-    </p>
   </div>
-</div>
 <% end %>

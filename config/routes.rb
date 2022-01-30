@@ -30,4 +30,5 @@ Rails.application.routes.draw do
 
   match 'bookings/:vaccine', to: 'main#current_step', via: :get, as: :current_step
   match 'next_step', to: 'main#next_step', via: :post
+  match 'prev_step', to: 'main#prev_step', via: :post
 end

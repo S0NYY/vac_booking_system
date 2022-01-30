@@ -1,7 +1,7 @@
 module Web
   module Steps
     # ...
-    class Step0Service
+    class Step0NextService
       include Interactor
 
       before do
@@ -11,11 +11,11 @@ module Web
       end
 
       def call
-        context.record = Patient.new(context.params)
+        context.record = context.booking.patient || Patient.new
 
         ActiveRecord::Base.transaction do
+          context.record.update!(context.params)
           context.record.save!
-
           update_booking!
         end
       rescue ActiveRecord::RecordNotUnique
