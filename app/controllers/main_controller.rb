@@ -68,7 +68,11 @@ class MainController < ApplicationController
     result = Web::PrevStepService.call(booking: @booking, params: params)
 
     if result.success?
-      redirect_to current_step_path(result.booking.vaccine&.name&.downcase)
+      if result.current_step == 0
+        delete_cookies
+      else
+        redirect_to current_step_path(result.booking.vaccine&.name&.downcase)
+      end
     else
       assign_step_variables({ vaccine: result.booking.vaccine, record: result.record })
 
@@ -102,9 +106,12 @@ class MainController < ApplicationController
 
   def clear_booking
     if @booking&.finished?
-      cookies.delete(:booking_uuid)
-
-      redirect_to root_url
+      delete_cookies
     end
+  end
+
+  def delete_cookies
+    cookies.delete(:booking_uuid)
+    redirect_to root_path
   end
 end

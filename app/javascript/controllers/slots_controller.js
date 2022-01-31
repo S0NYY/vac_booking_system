@@ -38,7 +38,6 @@ export default class extends Controller {
             data: "country_id=" + country_id + "&dt=" + this.countryIdValue,
             success: (data) => {
                 this.cityTarget.innerHTML = data.body.innerHTML
-                debugger
             }
         });
     }

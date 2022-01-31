@@ -19,7 +19,7 @@ module Web
       context.next_step = result.next_step
       context.current_step = result.current_step
 
-      context.send('last_step?=', result.last_step) 
+      context.send('last_step?=', result.last_step)
 
       context.fail!(message: result.message) if result.failure?
     end

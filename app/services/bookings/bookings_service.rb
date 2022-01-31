@@ -1,6 +1,6 @@
 module Bookings
   # ...
-  class BookingsService 
+  class BookingsService
     attr_reader :result
 
     def initialize
