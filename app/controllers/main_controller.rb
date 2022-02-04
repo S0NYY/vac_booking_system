@@ -68,11 +68,9 @@ class MainController < ApplicationController
     result = Web::PrevStepService.call(booking: @booking, params: params)
 
     if result.success?
-      if result.current_step == 0
-        delete_cookies
-      else
-        redirect_to current_step_path(result.booking.vaccine&.name&.downcase)
-      end
+      return delete_cookies if result.first_step?
+
+      redirect_to current_step_path(result.booking.vaccine&.name&.downcase)
     else
       assign_step_variables({ vaccine: result.booking.vaccine, record: result.record })
 

@@ -17,7 +17,7 @@ module Web
     def normalize_result(result)
       context.record = result.record
       context.current_step = result.current_step
-
+      context.send("first_step?=", result.first_step)
       context.fail!(message: result.message) if result.failure?
     end
   end
