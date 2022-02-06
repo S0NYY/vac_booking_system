@@ -2,6 +2,10 @@
   <h1><%= I18n.t('web.main.header')%></h1>
 </div>
 
+<div class="row">
+  <p><%= link_to 'Cansel Order', order_cancellations_path, class: 'btn btn-danger'%></p>
+</div>
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <% @vaccine_items.each do |item| %>
   <div class="col">
@@ -14,7 +18,7 @@
     <div class="card-footer">
 	
     <small class="text-muted">
-      <%= I18n.t('web.main.seats', quantity: @slots.length) %>
+      <%= I18n.t('web.main.seats', quantity: @slots_quantity) %>
     </small>
   
       </div>

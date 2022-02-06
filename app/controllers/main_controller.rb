@@ -8,22 +8,7 @@ class MainController < ApplicationController
 
     @bu_unit_slot = BusinessUnitSlot.active
 
-    @slots =
-      BusinessUnitSlot
-      .select('bus.id, bus.duration, bus.start_date::date AS current_start_date, slots.item AS slot_item')
-      .from(@bu_unit_slot.active, 'bus')
-      .joins(
-        "LEFT JOIN LATERAL (
-          SELECT generate_series(bus.start_date, bus.end_date, bus.duration * '1 minutes'::interval)::timestamp as item
-        ) slots ON true"
-      )
-      .joins(
-        'LEFT JOIN orders o ON o.business_unit_slot_id = bus.id
-          AND o.finished = true AND o.order_date::timestamp = slots.item'
-      )
-      .where('o.id IS NULL')
-      .where('slots.item >= ?', Time.current)
-
+    @slots_quantity = Slots::SqlService.new(@bu_unit_slot).slots.length
   end
 
   def current_step
