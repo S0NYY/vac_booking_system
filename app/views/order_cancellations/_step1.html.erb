@@ -1,0 +1,43 @@
+<br>
+<div class="card-body">
+  <div class="row">
+    <div class="col">
+      <h1>Your Order</h1>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Business unit</th>
+          <th>Address</th>
+          <th>Order date</th>
+          <th colspan="2"></th>
+        </tr>
+        </thead>
+        <tbody>
+          <% order= OrderCancellationPresenter.new(@orders)%>
+          <tr>
+            <td class="align-middle"><%= order.business_unit %></td>
+            <td class="align-middle"><%= order.address %></td>
+            <td class="align-middle"><%= styled_date(order.order_time) %></td>
+            <td class="align-middle">
+              <p data-order-target="current_order" hidden><%= order.order_id %></p>
+              <button type="button" data-action="click->order#button" class='btn btn-danger'>
+                Cancel booking
+              </button></td>
+          <div data-order-target="user_info"></div>
+          </tr>
+        </tbody>
+      </table>
+      <div class="col m-5" data-order-target='verify_form' hidden>
+        <%= form_with url: false do |f| %>
+        <label>Enter Verify Code </label>
+          <%= f.text_field :verify_sms_code, class: 'form-control', data: { order_target: 'verify_sms_code' }  %>
+        <%end%>
+        <div class="text-center mt-5">
+          <button class='btn btn-primary' data-action="click->order#message">Enter Code</button>
+        </div>
+      </div>
+      <div data-order-target="missing" class="mx-auto mb-3"></div>
+    </div>
+    </div>
+  </div>
+</div>

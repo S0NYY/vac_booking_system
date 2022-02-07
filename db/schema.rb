@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_203311) do
+ActiveRecord::Schema.define(version: 2022_02_05_121711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gist"
@@ -151,6 +151,16 @@ ActiveRecord::Schema.define(version: 2022_01_30_203311) do
     t.index ["name"], name: "index_vaccines_items_on_name", unique: true
   end
 
+  create_table "verify_sms_messages", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.string "code"
+    t.datetime "approved_at"
+    t.datetime "sent_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_verify_sms_messages_on_booking_id"
+  end
+
   add_foreign_key "bookings", "orders"
   add_foreign_key "bookings", "patients"
   add_foreign_key "business_unit_slots", "business_units"
@@ -163,4 +173,5 @@ ActiveRecord::Schema.define(version: 2022_01_30_203311) do
   add_foreign_key "order_sms_messages", "bookings"
   add_foreign_key "orders", "business_unit_slots"
   add_foreign_key "orders", "patients"
+  add_foreign_key "verify_sms_messages", "bookings"
 end

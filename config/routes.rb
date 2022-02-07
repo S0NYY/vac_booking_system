@@ -31,4 +31,9 @@ Rails.application.routes.draw do
   match 'bookings/:vaccine', to: 'main#current_step', via: :get, as: :current_step
   match 'next_step', to: 'main#next_step', via: :post
   match 'prev_step', to: 'main#prev_step', via: :post
+
+  get 'order_cancellations/find_order'
+  post 'order_cancellations/send_verification'
+  post 'order_cancellations/verification_code'
+  resources :order_cancellations
 end

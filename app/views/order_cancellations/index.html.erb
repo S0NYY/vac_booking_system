@@ -1,0 +1,21 @@
+<div class="booking">
+  <h4 class="alert-heading">Find Booking</h4>
+</div>
+
+<div class="form-group" data-controller="order">
+  <br>
+  <%= form_with url: false do |f|%>
+    <label>Order code</label>
+    <%=f.text_field :order_code, data:{ order_target: 'order_code' }, class: 'form-control' %>
+    <label>Mobile phone</label>
+    <%=f.text_field :mobile_phone, data:{ order_target: 'mobile_phone'}, class: 'form-control' %>
+  <% end %>
+  <br>
+  <%= link_to 'Back', :back , class: 'btn btn-secondary' %>
+  <button type="button" class="btn btn-primary" data-action="click->order#findOrder" data-order-target="find">Find</button>
+  <div data-order-target="user_order_info"></div>
+</div>
+
+
+
+		
