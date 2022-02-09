@@ -1,10 +1,9 @@
 module Web
   # ...
   class VerifySmsService
-    attr_reader :booking
+    attr_accessor :booking
 
-    def initialize(current_order, booking_id)
-      @current_order = current_order
+    def initialize(booking_id)
       @booking_id = booking_id
     end
 

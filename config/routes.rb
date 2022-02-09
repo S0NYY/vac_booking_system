@@ -34,6 +34,6 @@ Rails.application.routes.draw do
 
   get 'order_cancellations/find_order'
   post 'order_cancellations/send_verification'
-  post 'order_cancellations/verification_code'
+  post 'order_cancellations/verify_code'
   resources :order_cancellations
 end
