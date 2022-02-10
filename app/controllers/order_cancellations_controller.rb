@@ -33,7 +33,7 @@ class OrderCancellationsController < ApplicationController
   private
 
   def find_current_order
-    @current_order = Order.find(params[:id])
+    @current_order = Order.find(params[:current_order_id])
     @booking_id = Booking.find_by(order: @current_order).id
   end
 end
